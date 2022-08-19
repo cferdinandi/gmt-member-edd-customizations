@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/cferdinandi/gmt-member-edd-customizations/
  * GitHub Plugin URI: https://github.com/cferdinandi/gmt-member-edd-customizations/
  * Description: Customizations to Easy Digital Downloads for Lean Web Club.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Chris Ferdinandi
  * Author URI: http://gomakethings.com
  * License: GPLv3

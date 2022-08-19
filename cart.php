@@ -56,7 +56,7 @@
 			$user_data = get_userdata( get_current_user_id() );
 		endif;
 		?>
-		<fieldset id="edd_checkout_user_info">
+		<fieldset class="padding-top" id="edd_checkout_user_info">
 			<?php do_action( 'edd_purchase_form_before_email' ); ?>
 			<p id="edd-email-wrap">
 				<label class="edd-label" for="edd-email"><strong><?php _e('Email Address', 'edd'); ?></strong></label>
@@ -67,7 +67,7 @@
 		</fieldset>
 		<?php
 	}
-	// add_action( 'edd_purchase_form_after_user_info', 'gmt_edd_custom_user_info_fields' );
+	add_action( 'edd_purchase_form_after_user_info', 'gmt_edd_custom_user_info_fields' );
 	// add_action( 'edd_register_fields_before', 'gmt_edd_custom_user_info_fields' );
 
 
@@ -211,7 +211,12 @@
 	function gmt_edd_custom_set_checkout_email_as_username () {
 
 		// Bail if there's no post
-		if ( empty( $_POST ) ) {
+		if (empty($_POST)) {
+			return false;
+		}
+
+		// Bail if there's no email
+		if (empty($_POST['edd_email'])) {
 			return false;
 		}
 
@@ -219,7 +224,8 @@
 		$_POST['edd_user_login'] = $_POST['edd_email'];
 
 	}
-	add_action( 'edd_pre_process_purchase', 'gmt_edd_custom_set_checkout_email_as_username' );
+	// add_action( 'edd_pre_process_purchase', 'gmt_edd_custom_set_checkout_email_as_username' );
+	// @todo
 
 
 
